@@ -16,7 +16,7 @@ if ($cart) {
     <thead>
         <tr>
             <th colspan="2">
-                <?= t('Product'); ?>
+                <?= t('Project'); ?>
             </th>
             <th class="text-right text-end"=">
                 <?= t('Price'); ?>

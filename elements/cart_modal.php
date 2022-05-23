@@ -64,8 +64,8 @@ if ($cartMode) {
                 <table id="cart" class="table table-hover table-condensed" >
                 <thead>
                 <tr>
-                    <th colspan="2" ><?= t('Product'); ?></th>
-                    <th class="text-right"><?= t('Price'); ?></th>
+                    <th colspan="2" ><?= t('Project'); ?></th>
+                    
                     <th class="text-right"><?= t('Quantity'); ?></th>
                     <th></th>
 
@@ -151,15 +151,7 @@ if ($cartMode) {
                                         <?php }  ?>
                                     </div>
                                 <?php } ?>
-                            </td>
-
-                            <td class="store-cart-list-item-price col-sm-2 text-right text-end">
-                                <?php if (isset($cartItem['product']['customerPrice'])) { ?>
-                                    <?=Price::format($cartItem['product']['customerPrice'])?>
-                                <?php } else {  ?>
-                                    <?=Price::format($product->getActivePrice($qty))?>
-                                <?php } ?>
-                            </td>
+                            
 
                             <td class="store-cart-list-product-qty col-sm-3 text-right text-end">
                                 <?php $quantityLabel = $csm->t($product->getQtyLabel(), 'productQuantityLabel', $product->getID()); ?>

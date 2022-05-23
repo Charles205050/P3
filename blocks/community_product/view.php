@@ -93,9 +93,8 @@ if (is_object($product) && $product->isActive()) {
                         }
 
                         ?>
-                        <p class="store-product-price" data-price="<?= $activePrice; ?>" data-original-price="<?= $salePrice ? $price : ''; ?>" data-list-price="<?= ($isWholesale && $wholesalePrice) ? $price : ''; ?>"
-                           itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                            <meta itemprop="priceCurrency" content="<?= Config::get('community_store.currency'); ?>"/>
+                       
+                           
                             <?php
                             $stockstatus = $product->isSellable() ? 'http://schema.org/InStock' : 'http://schema.org/OutOfStock';
 
@@ -118,9 +117,7 @@ if (is_object($product) && $product->isActive()) {
 
                                     $formattedPrice = $product->getFormattedPrice();
 
-                                    echo $formattedPrice;
-                                    echo '<meta itemprop="price" content="' . $price . '" />';
-                                    echo '<link itemprop="availability " href="' . $stockstatus . '"/>';
+                                    
                                 }
                             } ?>
                         </p>

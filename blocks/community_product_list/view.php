@@ -175,77 +175,7 @@ if (!$productsPerRow) {
                         </h2>
                         <?php
                     } ?>
-
-                    <?php if ($showPrice && !$product->allowCustomerPrice()) {
-                        $salePrice = $product->getSalePrice();
-                        $price = $product->getPrice();
-                        $activePrice = ($salePrice ? $salePrice : $price ) - $product->getPriceAdjustment($product->getDiscountRules());
-                        ?>
-                        <p class="store-product-price store-product-list-price" data-price="<?= $activePrice; ?>" data-original-price="<?= ($salePrice ? $price : ''); ?>" >
-                            <?php
-                            $salePrice = $product->getSalePrice();
-                            if (isset($salePrice) && "" != $salePrice) {
-                                $formattedSalePrice = $product->getFormattedSalePrice();
-                                $formattedOriginalPrice = $product->getFormattedOriginalPrice();
-                                echo '<span class="store-sale-price">' . $formattedSalePrice . '</span>';
-                                echo '&nbsp;' . t('was') . '&nbsp;' . '<span class="store-original-price">' . $formattedOriginalPrice . '</span>';
-                            } else {
-                                $formattedPrice = $product->getFormattedPrice();
-                                echo $formattedPrice;
-                            } ?>
-                        </p>
-                        <?php
-                    } ?>
-
-                    <?php if ($product->allowCustomerPrice()) {
-                        ?>
-                        <div class="store-product-customer-price-entry form-group">
-                            <?php
-                            $pricesuggestions = $product->getPriceSuggestionsArray();
-                            if (!empty($pricesuggestions)) {
-                                ?>
-                                <p class="store-product-price-suggestions"><?php
-                                    foreach ($pricesuggestions as $suggestion) {
-                                        ?>
-                                        <a href="#" class="store-price-suggestion btn btn-default btn-secondary btn-sm" data-suggestion-value="<?= $suggestion; ?>" data-add-type="list"><?= Config::get('community_store.symbol') . $suggestion; ?></a>
-                                        <?php
-                                    } ?>
-                                </p>
-                                <label for="customerPrice" class="store-product-customer-price-label"><?= t('Enter Other Amount'); ?></label>
-                                <?php
-                            } else {
-                                ?>
-                                <label for="customerPrice" class="store-product-customer-price-label"><?= t('Amount'); ?></label>
-                                <?php
-                            } ?>
-                            <?php $min = $product->getPriceMinimum(); ?>
-                            <?php $max = $product->getPriceMaximum(); ?>
-                            <div class="input-group col-md-6 col-sm-6 col-sm-6">
-                                <div class="input-group-addon"><?= Config::get('community_store.symbol'); ?></div>
-                                <input type="number" <?= $min ? 'min="' . $min . '"' : ''; ?>  <?= $max ? 'max="' . $max . '"' : ''; ?> step="0.01" class="store-product-customer-price-entry-field form-control" value="<?= $product->getPrice(); ?>" name="customerPrice"/>
-                            </div>
-                            <?php if ($min >= 0 || $max > 0) {
-                                ?>
-                                <span class="store-min-max help-block">
-                                        <?php
-                                        if (!is_null($min)) {
-                                            echo t('minimum') . ' ' . Config::get('community_store.symbol') . $min;
-                                        }
-
-                                        if (!is_null($max)) {
-                                            if ($min >= 0) {
-                                                echo ', ';
-                                            }
-                                            echo t('maximum') . ' ' . Config::get('community_store.symbol') . $max;
-                                        } ?>
-                                        </span>
-                                <?php
-                            } ?>
-                        </div>
-                        <?php
-                    } ?>
-
-                    <?php if ($showDescription) {
+                  <?php if ($showDescription) {
                         ?>
                         <div class="store-product-list-description"><?= $csm->t($product->getDesc(), 'productDescription', $product->getID()); ?></div>
                         <?php
