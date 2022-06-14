@@ -63,19 +63,19 @@ $csm = $app->make('cs/helper/multilingual');
                     <div class="store-checkout-form-group-body">
 
                         <?php if ($customer->isGuest()) { ?>
-                            <h2><?= t("Customer Information") ?></h2>
+                            <h2><?= t("Personal Information") ?></h2>
                             <div class="row mb-3">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="store-email"><?= t("Email") ?></label>
-                                        <?= $form->email('store-email', $customer->getEmail(), ['required'=>'required','placeholder'=>t('Email')]); ?>
+                                        <?= $form->email('store-email', $customer->getEmail(), ['placeholder'=>t('Email')]); ?>
                                     </div>
                                 </div>
                             </div>
                         <?php } ?>
 
 
-                        <h2><?= t("Billing Details") ?></h2>
+                        
 
                         <div class="row">
                             <div class="col-md-6">
@@ -109,11 +109,11 @@ $csm = $app->make('cs/helper/multilingual');
                         <?php } ?>
                         <div class="row">
                             <div class="col-md-12">
-                                <label for="store-checkout-billing-address-1"><?= t("Street Address") ?></label>
+                                <label for="store-checkout-billing-address-1"><?= t("Affiliation") ?></label>
                             </div>
                             <div class="col-md-7 mb-3">
                                 <div class="form-group">
-                                    <?= $form->text('store-checkout-billing-address-1', $customer->getAddressValue('billing_address', 'address1'), array('required'=>'required','placeholder'=>t('Street Address'))); ?>
+                                    <?= $form->text('store-checkout-billing-address-1', $customer->getAddressValue('billing_address', 'address1'), array('required'=>'required','placeholder'=>t('Affiliation'))); ?>
                                 </div>
                             </div>
                             <div class="col-md-5 mb-3">
@@ -157,7 +157,7 @@ $csm = $app->make('cs/helper/multilingual');
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <div class="form-group">
-                                    <label for="store-checkout-billing-phone"><?= t("Phone Number") ?></label>
+                                    <label for="store-checkout-billing-phone"><?= t("test") ?></label>
                                     <?= $form->telephone('store-checkout-billing-phone', $customer->getValue('billing_phone'), array('required'=>'required','placeholder'=>t('Phone Number'))); ?>
                                 </div>
                             </div>
@@ -575,12 +575,7 @@ $csm = $app->make('cs/helper/multilingual');
 
 
                 <ul class="store-checkout-totals-line-items list-group mb-3">
-                    <li class="store-line-item store-sub-total list-group-item">
-                        <strong><?= t("Items Subtotal") ?>:</strong> <span class="store-sub-total-amount"><?= Price::format($subtotal); ?></span>
-                        <?php if ($calculation == 'extract') {
-                            echo '<small class="text-muted">' . t("inc. taxes") . "</small>";
-                        } ?>
-                    </li>
+                   
 
                  <?php if ($shippingEnabled) { ?>
 
@@ -608,8 +603,7 @@ $csm = $app->make('cs/helper/multilingual');
 
 
                 <ul class="store-checkout-totals-line-items list-group">
-                    <li class="store-line-item store-grand-total list-group-item"><strong><?= t("Total") ?>:</strong> <span
-                            class="store-total-amount" data-total-cents="<?= Price::formatInNumberOfCents($total); ?>"><?= Price::format($total) ?></span></li>
+                    
                 </ul>
             </div>
         </div>

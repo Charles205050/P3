@@ -11,7 +11,7 @@ $csm = $app->make('cs/helper/multilingual');
 
 ?>
 <div class="store-cart-page">
-<h1><?= t("Shopping Cart") ?></h1>
+<h1><?= t("Project Cart") ?></h1>
 
 <?php if (isset($actiondata) and !empty($actiondata)) { ?>
     <?php if ($actiondata['action'] == 'update') { ?>
@@ -268,7 +268,7 @@ if ($cart && !empty($cart)) { ?>
 
     <p class="store-cart-page-cart-total text-right text-end">
         <strong class="store-cart-grand-total-label"><?= t("Total") ?>:</strong>
-        <span class="store-cart-grand-total-value"><?= Price::format($total) ?></span>
+        <span class="store-cart-grand-total-value"><?= Quantity::format($total) ?></span>
     </p>
 
     <div class="store-cart-page-cart-links pull-right float-end">

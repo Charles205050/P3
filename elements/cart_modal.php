@@ -18,7 +18,7 @@ if ($cartMode) {
 ?>
 <div class="store-cart-modal <?= $cartModeClass; ?> clearfix" id="cart-modal">
     <a href="#" class="store-modal-exit">&times;</a>
-    <h3><?= t("Shopping Cart")?></h3>
+    <h3><?= t("Project Cart")?></h3>
     <div class="store-cart-page-cart">
         <?php
         if (isset($actiondata) and !empty($actiondata)) { ?>
@@ -241,7 +241,7 @@ if ($cartMode) {
 
         <div class="store-cart-page-cart-links">
             <p class="pull-left float-start">
-                <a class="store-btn-cart-modal-continue btn btn-default btn-secondary" href="#"><?= t("Continue Shopping")?></a>
+                <a class="store-btn-cart-modal-continue btn btn-default btn-secondary" href="#"><?= t("Continue")?></a>
                 <?php if ($cart  && !empty($cart)) { ?>
                 <a class="store-btn-cart-modal-clear btn btn-warning text-white " href="#"><?= t('Clear Cart')?></a>
             </p>

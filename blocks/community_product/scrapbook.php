@@ -31,9 +31,7 @@ $csm = $app->make('cs/helper/multilingual');
 
         <?= $product->getImageThumb(); ?>
         <ul style="font-size: 90%">
-            <?php if (!$product->isActive()) { ?>
-                <li><em><?= t('Inactive'); ?></em></li>
-            <?php } ?>
+            
 
             <?php if ($product->allowCustomerPrice()) { ?>
                 <li><em><?= t('Allow customer to enter price'); ?></em></li>

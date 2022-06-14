@@ -19,10 +19,9 @@ if ($cart) {
                 <?= t('Project'); ?>
             </th>
             <th class="text-right text-end"=">
-                <?= t('Price'); ?>
-            </th>
-            <th class="text-center">
-                <?= t('Quantity'); ?>
+               
+           
+                
             </th>
         </tr>
     </thead>
@@ -116,13 +115,8 @@ if ($cart) {
             } ?>
             </td>
 
-            <td class="store-cart-item-price text-right text-end">
-                <?php if (isset($cartItem['product']['customerPrice'])) { ?>
-                <?= Price::format($cartItem['product']['customerPrice']) ?>
-                <?php
-            } else {  ?>
-                <?= Price::format($product->getActivePrice($qty)) ?>
-                <?php
+           
+                
             } ?>
             </td>
 
