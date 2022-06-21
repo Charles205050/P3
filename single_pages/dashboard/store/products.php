@@ -99,13 +99,13 @@ if (version_compare($version, '9.0', '<')) {
                     <div class="row">
                         <div class="col-md-8 col">
                             <div class="form-group">
-                                <?= $form->label("pName", t('Product Name')); ?>
+                                <?= $form->label("pName", t('Project Name')); ?>
                                 <?= $form->text("pName", $product->getName(), ['required' => 'required']); ?>
                             </div>
                         </div>
                         <div class="col-md-4 col">
                             <div class="form-group">
-                                <?= $form->label("pSKU", t('Code / SKU')); ?>
+                                <?= $form->label("pSKU", t('ID Project')); ?>
                                 <?= $form->text("pSKU", $product->getSKU(), ['maxlength' => 100]); ?>
                             </div>
                         </div>
@@ -202,7 +202,7 @@ if (version_compare($version, '9.0', '<')) {
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <?= $form->label("pDateAvailableStart", t('Stock Available From')); ?>
+                                    <?= $form->label("pDateAvailableStart", t('Project Available From')); ?>
                                     <?= $app->make('helper/form/date_time')->datetime('pDateAvailableStart', $product->getDateAvailableStart()); ?>
                                 </div>
                             </div>
@@ -211,7 +211,7 @@ if (version_compare($version, '9.0', '<')) {
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <?= $form->label("pDateAvailableEnd", t('Stock Available Until')); ?>
+                                    <?= $form->label("pDateAvailableEnd", t('project Available Until')); ?>
                                     <?= $app->make('helper/form/date_time')->datetime('pDateAvailableEnd', $product->getDateAvailableEnd()); ?>
                                 </div>
                             </div>
@@ -231,38 +231,31 @@ if (version_compare($version, '9.0', '<')) {
                                     $defaultpriceclass .= ' hidden d-none';
                                 }
                                 ?>
-                                <?= $form->label("pPrice", t("Price"), ['class' => $priceclass]); ?>
-                                <?= $form->label("pPrice", t("Default Price"), ['class' => $defaultpriceclass]); ?>
+                                <?= $form->label("pPrice", t(" "), ['class' => $priceclass]); ?>
                                 <div class="input-group">
-                                    <div class="input-group-addon input-group-text">
-                                        <?= Config::get('community_store.symbol'); ?>
+                                    <div class="input-group-text">
                                     </div>
                                     <?php $price = $product->getBasePrice(); ?>
-                                    <?= $form->number("pPrice", $price, ['step'=>'0.01', 'placeholder' => ($product->allowCustomerPrice() ? t('No Price Set') : '')]); ?>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4 <?= ($hideWholesalePrice ? 'hidden d-none' : ''); ?>">
                             <div class="form-group nonpriceentry <?= ($product->allowCustomerPrice() ? 'hidden' : '');?> ">
-                                <?= $form->label("pWholesalePrice", t('Wholesale Price'), array('class'=>$priceclass));?>
+                                <?= $form->label("pWholesalePrice", t(' '), array('class'=>$priceclass));?>
                                 <div class="input-group">
-                                    <div class="input-group-addon input-group-text">
-                                        <?= Config::get('community_store.symbol');?>
+                                    <div class="input-group-text">
                                     </div>
                                     <?php $wholesalePrice = $product->getWholesalePriceValue(); ?>
-                                    <?= $form->number("pWholesalePrice", $wholesalePrice, ['step'=>'0.01', 'placeholder'=>t('No Wholesale Price Set')]);?>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4 <?= ($hideCostPrice ? 'hidden d-none' : ''); ?>">
                             <div class="form-group">
-                                <?= $form->label("pCostPrice", t('Cost Price'), array('class'=>$priceclass));?>
+                                <?= $form->label("pCostPrice", t(''), array('class'=>$priceclass));?>
                                 <div class="input-group">
-                                    <div class="input-group-addon input-group-text">
-                                        <?= Config::get('community_store.symbol');?>
+                                    <div class="input-group-text">
                                     </div>
                                     <?php $costPrice = $product->getCostPrice(); ?>
-                                    <?= $form->number("pCostPrice", $costPrice, ['step'=>'0.01', 'placeholder'=>t('No Cost Price Set')]);?>
                                 </div>
                             </div>
                         </div>
@@ -271,8 +264,7 @@ if (version_compare($version, '9.0', '<')) {
                     <div class="row <?= ($hideCustomerPriceEntry ? 'hidden d-none' : ''); ?>">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <?= $form->checkbox('pCustomerPrice', '1', $product->allowCustomerPrice()) ?>
-                                <?= $form->label('pCustomerPrice', t('Allow customer to enter price')) ?>
+                                <?= $form->label('pCustomerPrice', t(' ')) ?>
                             </div>
                         </div>
                     </div>
@@ -283,15 +275,13 @@ if (version_compare($version, '9.0', '<')) {
 
                         <div class="col-md-6">
                             <div class="form-group nonpriceentry <?= ($product->allowCustomerPrice() ? 'hidden d-none' : ''); ?>">
-                                <?= $form->label("pSalePrice", t('Sale Price'), ['class' => $priceclass]); ?>
+                                <?= $form->label("pSalePrice", t(' '), ['class' => $priceclass]); ?>
                                 <div class="input-group">
-                                    <div class="input-group-addon input-group-text">
-                                        <?= Config::get('community_store.symbol'); ?>
+                                    <div class="input-group-text">
                                     </div>
                                     <?php $salePrice = $product->getSalePriceValue(); ?>
-                                    <?= $form->number("pSalePrice", $salePrice, ['step'=>'0.01', 'placeholder' => t('No Sale Price Set')]); ?>
                                 </div>
-                                <span class="help-block <?=($salePrice ? 'hidden d-none' : ''); ?>" id="saleNote"><?= t('Enter a value to set start and end dates for the sale'); ?></span>
+                                <span class="help-block <?=($salePrice ? 'hidden d-none' : ''); ?>" id="saleNote"><?= t(' '); ?></span>
 
                                 <script>
                                     $(document).ready(function () {
@@ -386,8 +376,7 @@ if (version_compare($version, '9.0', '<')) {
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <?= $form->checkbox('pQuantityPrice', '1', $product->hasQuantityPrice()) ?>
-                                <?= $form->label('pQuantityPrice', t('Quantity based pricing')) ?>
+                                <?= $form->label('pQuantityPrice', t(' ')) ?>
                                 <span id="tieredoptionsnote" class="help-block <?= $product->hasQuantityPrice() ? '' : 'hidden d-none' ?>"><?= t('Note: quantity based pricing is not overridden by a sale price'); ?></span>
                             </div>
                         </div>
@@ -502,14 +491,12 @@ if (version_compare($version, '9.0', '<')) {
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <?= $form->label("pTaxable", t('Taxable')); ?>
-                                <?= $form->select("pTaxable", ['1' => t('Yes'), '0' => t('No')], $product->isTaxable() ? '1' : '0'); ?>
+                                <?= $form->label("pTaxable", t(' ')); ?>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <?= $form->label("pTaxClass", t('Tax Class')); ?>
-                                <?= $form->select("pTaxClass", $taxClasses, $product->getTaxClassID()); ?>
+                                <?= $form->label("pTaxClass", t(' ')); ?>
                             </div>
                         </div>
                     </div>
@@ -605,7 +592,7 @@ if (version_compare($version, '9.0', '<')) {
                 <div class="store-pane" id="product-descriptions">
 
                     <div class="form-group">
-                        <?= $form->label("pDesc", t('Short Description')); ?><br>
+                        <?= $form->label("pDesc", t('Short Description of the project')); ?><br>
                         <?php
                         $editor = $app->make('editor');
                         $editor->getPluginManager()->deselect(array('autogrow'));
@@ -616,7 +603,7 @@ if (version_compare($version, '9.0', '<')) {
                     </div>
 
                     <div class="form-group">
-                        <?= $form->label("pDesc", t('Product Details (Long Description)')); ?><br>
+                        <?= $form->label("pDesc", t('Project Details (Long Description)')); ?><br>
                         <?php
                         $editor = $app->make('editor');
                         $editor->getPluginManager()->deselect(array('autogrow'));
@@ -625,8 +612,7 @@ if (version_compare($version, '9.0', '<')) {
                     </div>
 
                     <div class="form-group">
-                        <?= $form->label("pManufacturer", t('Brand / Manufacturer')); ?>
-                        <?= $form->select('pManufacturer', $manufacturers, $product->getManufacturer() ? $product->getManufacturer()->getID() : '',  ['class' => 'selectize']); ?>
+                        <?= $form->label("pManufacturer", t(' ')); ?>
                     </div>
 
 
@@ -1971,7 +1957,7 @@ if (version_compare($version, '9.0', '<')) {
             <thead>
             <tr>
                 <th><a><?= t('Primary Image') ?></a></th>
-                <th><a href="<?= $productList->getSortURL('alpha'); ?>"><?= t('Product Name') ?></a></th>
+                <th><a href="<?= $productList->getSortURL('alpha'); ?>"><?= t('Project Name') ?></a></th>
                 <th><a href="<?= $productList->getSortURL('active'); ?>"><?= t('Active') ?></a></th>
                 <th><a><?= t('Stock Level') ?></a></th>
                 <th><a href="<?= $productList->getSortURL('price'); ?>"><?= t('Price') ?></a></th>

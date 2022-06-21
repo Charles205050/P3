@@ -83,7 +83,7 @@ $dh = $app->make('helper/date');
                     $phone = $order->getAttribute("billing_phone");
                     if ($phone) {
                         ?>
-                        <strong><?= t('Phone'); ?>:</strong> <?= $phone; ?><br>
+                        <strong><?= t('Motivation'); ?>:</strong> <?= $phone; ?><br>
                         <?php
                     } ?>
 
@@ -114,7 +114,7 @@ $dh = $app->make('helper/date');
             </div>
 
             <div class="col-sm-4">
-                <h4><?= t("Billing Address"); ?></h4>
+                <h4><?= t("Information"); ?></h4>
                 <p>
                     <?= h($order->getAttribute("billing_first_name")) . " " . h($order->getAttribute("billing_last_name")); ?><br>
                     <?php $billingaddress = $order->getAttributeValueObject('billing_address');
@@ -167,15 +167,14 @@ $dh = $app->make('helper/date');
     </fieldset>
     <br>
     <fieldset>
-        <legend><?= t("Order Items"); ?></legend>
+        <legend><?= t("Project(s) Order "); ?></legend>
         <table class="table table-striped">
             <thead>
             <tr>
-                <th><strong><?= t("Product Name"); ?></strong></th>
-                <th><?= t("Product Options"); ?></th>
-                <th class="text-right"><?= t("Price"); ?></th>
+                <th><strong><?= t("Project Name"); ?></strong></th>
+                <th><?= t(""); ?></th>
                 <th class="text-right"><?= t("Quantity"); ?></th>
-                <th class="text-right"><?= t("Subtotal"); ?></th>
+                
             </tr>
             </thead>
             <tbody>
@@ -206,9 +205,7 @@ $dh = $app->make('helper/date');
                                 echo "</ul>";
                             } ?>
                         </td>
-                        <td class="text-right"><?= Price::format($item->getPricePaid()); ?></td>
                         <td class="text-right"><?= $item->getQuantity(); ?> <?= h($item->getQuantityLabel()); ?></td>
-                        <td class="text-right"><?= Price::format($item->getSubTotal()); ?></td>
                     </tr>
                     <?php
                 }
@@ -217,8 +214,6 @@ $dh = $app->make('helper/date');
             </tbody>
             <tfoot>
             <tr>
-                <td colspan="4" class="text-right"><strong><?= t("Items Subtotal"); ?>:</strong></td>
-                <td class="text-right"><?= Price::format($order->getSubTotal()); ?></td>
             </tr>
             </tfoot>
         </table>
@@ -279,10 +274,8 @@ $dh = $app->make('helper/date');
 
 
         <p>
-            <strong><?= t("Grand Total"); ?>: </strong><?= Price::format($order->getTotal()); ?>
         </p>
         <p>
-            <strong><?= t("Payment Method"); ?>: </strong><?= t($order->getPaymentMethodName()); ?><br>
         </p>
 
         <?php

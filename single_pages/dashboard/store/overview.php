@@ -46,18 +46,18 @@ if ($taxCalc == 'extract') {
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-sm-6 stat">
-                            <strong><?= t('Total') ?></strong> <?= Price::format($ts['total']) ?>
+                            <strong><?= t(' ') ?></strong> 
                         </div>
                         <div class="col-sm-6 stat">
-                            <strong><?= t('Products') ?></strong> <?= Price::format($ts['productTotal']) ?>
+                            <strong><?= t('Products') ?></strong> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 stat">
-                            <strong><?= t('Tax') ?> <?= $extraTaxLable ?></strong> <?= Price::format($ts[$taxValue]) ?>
+                            <strong><?= t(' ') ?> <?= $extraTaxLable ?></strong> 
                         </div>
                         <div class="col-sm-6 stat">
-                            <strong><?= t('Shipping') ?></strong> <?= Price::format($ts['shippingTotal']) ?>
+                            <strong><?= t(' ') ?></strong> 
                         </div>
                     </div>
                 </div>
@@ -182,8 +182,8 @@ if ($taxCalc == 'extract') {
 
 
         <p class="pull-right float-end"><a href="<?= Url::to('/dashboard/store/products/add') ?>"><i class="fa fa-plus"></i>
-                <?= t('Add Product') ?></a></p>
-        <p><a href="<?= Url::to('/dashboard/store/products') ?>"><i class="fa fa-gift"></i> <?= t('View All Products') ?></a></p>
+                <?= t('Add Project') ?></a></p>
+        <p><a href="<?= Url::to('/dashboard/store/products') ?>"><i class="fa fa-gift"></i> <?= t('View All Projects') ?></a></p>
 
         <hr>
 
@@ -215,8 +215,8 @@ if ($taxCalc == 'extract') {
                     <th><a><?= t("Order %s", "#") ?></a></th>
                     <th><a><?= t("Customer Name") ?></a></th>
                     <th><a><?= t("Order Date") ?></a></th>
-                    <th><a><?= t("Total") ?></a></th>
-                    <th><a><?= t("Payment") ?></a></th>
+                    <th><a><?= t(" ") ?></a></th>
+                    
                     <th><a><?= t("Fulfilment") ?></a></th>
                     <th><a><?= t("View") ?></a></th>
                 </tr>
@@ -256,7 +256,6 @@ if ($taxCalc == 'extract') {
 
                             ?><?= $canend; ?></td>
                         <td><?= $canstart; ?><?= $dh->formatDateTime($order->getOrderDate()) ?><?= $canend; ?></td>
-                        <td><?= $canstart; ?><?= Price::format($order->getTotal()) ?><?= $canend; ?></td>
                         <td>
                             <?php
                             $refunded = $order->getRefunded();

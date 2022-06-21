@@ -19,11 +19,11 @@ $csm = $app->make('cs/helper/multilingual');
     <?php } ?>
 
     <?php if ($actiondata['action'] == 'changed') { ?>
-        <p class="alert alert-success"><?= t('Your cart has been updated due to changes in stock levels'); ?></p>
+        <p class="alert alert-success"><?= t('Your project cart has been updated due to changes in stock levels'); ?></p>
     <?php } ?>
 
     <?php if ($actiondata['action'] == 'clear') { ?>
-        <p class="alert alert-warning"><?= t('Your cart has been cleared'); ?></p>
+        <p class="alert alert-warning"><?= t('Your project cart has been cleared'); ?></p>
     <?php } ?>
 
     <?php if ($actiondata['action'] == 'remove') { ?>

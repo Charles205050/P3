@@ -14,12 +14,7 @@
         <?php if ($showGreeting) {
             $u = new User();
             if ($u->isLoggedIn()) {
-                $msg = '<span class="store-welcome-message">' . t("Welcome back") . '</span>';
-                $ui = $app->make(\Concrete\Core\User\UserInfoRepository::class)->getByID($u->getUserID());
-                if ($ui && $firstname = $ui->getAttribute('billing_first_name')) {
-                    $msg = '<span class="store-welcome-message">' . t("Welcome back, ") . '<span class="first-name">' . $firstname . '</span></span>';
-                }
-                echo $msg;
+              
             }
         } ?>
         </p>

@@ -100,7 +100,7 @@ $dh = $app->make('helper/date');
                     $phone = $order->getAttribute("billing_phone");
                     if ($phone) {
                     ?>
-                        <h4><?= t("Phone") ?></h4>
+                        <h4><?= t("Motivation") ?></h4>
                         <p><?= $order->getAttribute("billing_phone") ?></p>
                     <?php } ?>
 
@@ -263,7 +263,7 @@ $dh = $app->make('helper/date');
 
 
         <p>
-            <strong><?= t("Grand Total") ?>: </strong><?= Price::format($order->getTotal()) ?>
+            <strong><?= t("Grand Totale") ?>: </strong><?= Price::format($order->getTotal()) ?>
         </p>
         <p>
             <strong><?= t("Payment Method") ?>: </strong><?= t($order->getPaymentMethodName()) ?><br>

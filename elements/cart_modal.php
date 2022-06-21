@@ -23,15 +23,15 @@ if ($cartMode) {
         <?php
         if (isset($actiondata) and !empty($actiondata)) { ?>
             <?php if($actiondata['action'] == 'add' && $actiondata['added'] > 0 && !$actiondata['error']) { ?>
-                <p class="alert alert-success"><strong><?=  h($csm->t( $actiondata['product']['pName'], 'productName',  $actiondata['product']['pID'])) ; ?></strong> <?= t('has been added to your cart');?></p>
+                <p class="alert alert-success"><strong><?=  h($csm->t( $actiondata['product']['pName'], 'productName',  $actiondata['product']['pID'])) ; ?></strong> <?= t('has been added to your project cart');?></p>
             <?php } ?>
 
             <?php if( $actiondata['action'] =='update') { ?>
-                <p class="alert alert-success"><?= t('Your cart has been updated');?></p>
+                <p class="alert alert-success"><?= t('Your project cart has been updated');?></p>
             <?php } ?>
 
             <?php if($actiondata['action'] == 'clear') { ?>
-                <p class="alert alert-warning"><?= t('Your cart has been cleared');?></p>
+                <p class="alert alert-warning"><?= t('Your project cart has been cleared');?></p>
             <?php } ?>
 
             <?php if($actiondata['action'] == 'remove') { ?>
@@ -66,7 +66,7 @@ if ($cartMode) {
                 <tr>
                     <th colspan="2" ><?= t('Project'); ?></th>
                     
-                    <th class="text-right"><?= t('Quantity'); ?></th>
+                    <th class="text-right"><?= t(' '); ?></th>
                     <th></th>
 
                 </tr>
@@ -163,9 +163,7 @@ if ($cartMode) {
                                     $max = $product->getMaxCartQty();
                                     ?>
                                     <?php if ($product->allowDecimalQuantity()) { ?>
-                                        <input type="number" name="pQty[]" class="store-product-qty form-control text-right pull-right text-end float-end" value="<?= $qty ?>" min="0" step="<?= $product->getQtySteps();?>" <?= ($max ? 'max="' . $max . '"' : '');?>>
                                     <?php } else { ?>
-                                        <input type="number" name="pQty[]" class="store-product-qty form-control text-right pull-right text-end float-end" value="<?= $qty ?>" min="1" step="1" <?= ($max ? 'max="' . $max . '"' : '');?>>
                                     <?php } ?>
 
                                     <input type="hidden" name="instance[]" value="<?= $k?>">
@@ -231,11 +229,11 @@ if ($cartMode) {
         <?php }?>
 
         <p class="store-cart-page-cart-total text-right text-end">
-            <strong class="store-cart-grand-total-label"><?= t("Total")?>:</strong>
-            <span class="store-cart-grand-total-value"><?=Price::format($total)?></span>
+            
+            
         </p>
         <?php } else { ?>
-        <p class="alert alert-info"><?= t('Your cart is empty'); ?></p>
+        <p class="alert alert-info"><?= t('Your project cart is empty'); ?></p>
         <?php } ?>
 
 

@@ -496,14 +496,9 @@ class Checkout extends PageController
         if (strlen($data['addr1']) > 255) {
             $e->add(t('Please enter a street name under 255 characters'));
         }
-        if (strlen($data['count']) < 2) {
-            $e->add(t('You must enter a Country'));
-        }
         if (strlen($data['count']) > 30) {
             $e->add(t('You did not select a Country from the list'));
-        }
-        if (strlen($data['city']) < 2) {
-            $e->add(t('You must enter a City'));
+        
         }
         if (strlen($data['city']) > 30) {
             $e->add(t('You must enter a valid City'));
@@ -511,9 +506,7 @@ class Checkout extends PageController
         if (strlen($data['postal']) > 10) {
             $e->add(t('You must enter a valid Postal Code'));
         }
-        if (strlen($data['postal']) < 2) {
-            $e->add(t('You must enter a valid Postal Code'));
-        }
+      
 
         return $e;
     }
